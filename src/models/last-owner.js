@@ -29,6 +29,4 @@ const LastOwner = connection.define('lastOwner', {
     }
 });
 
-
-
 module.exports = LastOwner;
