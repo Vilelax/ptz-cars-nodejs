@@ -1,9 +1,10 @@
 const express = require('express');
 const manufacturerController = require('../controllers/manufacturer');
+const verifyJWT = require('../controllers/auth').verifyJWT;
 
 const router = express.Router();
 
-router.get('/', manufacturerController.index);
+router.get('/', verifyJWT, manufacturerController.index);
 
 router.get('/:id', manufacturerController.show);
 

@@ -5,6 +5,7 @@ require('dotenv').config();
 const sequelize = require('./src/utils/database');
 const bootstrap = require('./src/utils/dbbootstrap');
 
+const authRouter = require('./src/routes/auth');
 const manufacturerRouter = require('./src/routes/manufacturer');
 const carModelRouter = require('./src/routes/car-model');
 const lastownerRouter = require('./src/routes/last-owner');
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use('/auth', authRouter);
 app.use('/manufacturers', manufacturerRouter);
 app.use('/car-models', carModelRouter);
 app.use('/last-owners', lastownerRouter);
